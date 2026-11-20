@@ -1,0 +1,74 @@
+{%- comment -%}
+  Contenu de la page d'accueil, commun à toutes les langues.
+  Les textes viennent de _data/<langue>/ et de _data/ui.yml.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang | default: 'fr' -%}
+{%- assign d = site.data[lang] -%}
+{%- assign p = d.profil -%}
+{%- assign t = site.data.ui[lang] -%}
+
+<header class="hero" id="apropos">
+  <div>
+    <h1>{{ p.nom }}</h1>
+    <p class="tagline">{{ p.accroche }}</p>
+  </div>
+</header>
+
+<section aria-labelledby="h-bio">
+  <h2 id="h-bio">{{ t.apropos }}</h2>
+  <div class="prose">{{ p.bio | markdownify }}</div>
+
+  {%- if d.actualites.size > 0 %}
+  <h3 class="subhead">{{ t.actualites }}</h3>
+  <ul class="news">
+    {%- for a in d.actualites %}
+    <li><time>{{ a.date }}</time><span>{{ a.texte | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span></li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+</section>
+
+<section id="recherche" aria-labelledby="h-recherche">
+  <h2 id="h-recherche">{{ t.recherche }}</h2>
+  <ul class="themes">
+    {%- for th in d.themes %}
+    <li>
+      <h3>{{ th.titre }}</h3>
+      <p>{{ th.description }}</p>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section id="enseignement" aria-labelledby="h-ens">
+  <div class="two-col">
+    <div>
+      <h2 id="h-ens">{{ t.enseignement }}</h2>
+      <ul class="entries">
+        {%- for c in d.enseignement %}
+        <li>
+          <h3>{{ c.cours }}</h3>
+          <p class="meta">{{ c.role }}, {{ c.session }}</p>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div>
+    </div>
+  </div>
+</section>
+
+<section id="interets" aria-labelledby="h-perso">
+  <h2 id="h-perso">{{ t.interets }}</h2>
+  <div class="prose">{{ p.interets_perso | markdownify }}</div>
+
+  {%- if site.data.pays and site.data.pays.size > 0 %}
+  {%- assign choisis = site.data.pays | join: " " | upcase | split: " " %}
+  <figure class="carte">
+    {% include carte-monde.svg titre=p.carte_legende choisis=choisis %}
+    {%- if p.carte_legende != blank %}
+    <figcaption><span class="carte-pastille" aria-hidden="true"></span>{{ p.carte_legende }}</figcaption>
+    {%- endif %}
+  </figure>
+  {%- endif %}
+</section>

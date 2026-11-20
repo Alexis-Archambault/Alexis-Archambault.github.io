@@ -1,0 +1,52 @@
+# Vos informations personnelles.
+# Un champ laissé vide ("") n'est pas affiché sur le site.
+
+nom: "Alexis Archambault"
+# Votre nom tel qu'il apparaît dans les listes d'auteurs (mis en gras dans les publications)
+nom_citation: "Alexis Archambault"
+statut: "Masters student"
+affiliation: "Department of computer science and operations research, Université de Montréal"
+
+# Photo : déposez le fichier dans assets/img/ puis indiquez son chemin, ex. /assets/img/photo.jpg
+photo: "/assets/img/photo_profile.jpg"
+
+accroche: "Master's student in computer science, operations research, game theory, and voting theory"
+
+
+bio: |
+  I am a master's student in computer science at the University of Montreal, a member of Cirrelt and Mila.
+  I work on game theory and voting theory, more specifically the links between *approval-based multiwinner 
+  voting* and *budgeted games*, the equilibria and algorithms.
+
+interets_perso: |
+  Alongside my algorithms, you'll often find me at quizzes or walking in nature.
+  I also love traveling, discovering the richness of cultures and nature. You 
+  can find some of my photos [here](/en/photos).
+
+
+  I also get involved in my free time for causes I believe in. Now: 
+    - On the board of directors of the *Mouvement provincial de Génie en herbe / Panthologie* (mpghp), the main organisation
+    for general knowledge quizzes competition in primary and secondary schools in Québec, to promote knowledge 
+    in general and offer thousands of young people in primary and secondary school a motivating extracurricular activity.
+    - On the Executive Committee of the Youth of the Parti Québécois to defend a fairer Québec, concerned 
+    for its people and its environment and a free Québec. As an internal affairs advisor, I handle the secretariat, status, 
+    and regulation and monitoring of our objectives.
+
+# Texte affiché sous le titre de la page Photos (Markdown accepté ; "" pour le masquer).
+# Pour plusieurs paragraphes, utilisez la forme « photos_description: | » comme pour bio.
+photos_description: "A few shots taken during my travels."
+
+# Légende de la carte du monde (les pays se choisissent dans _data/pays.yml)
+carte_legende: "Countries visited"
+
+courriel: "alexis.archambault.1 (at) umontreal.ca"
+bureau: ""
+adresse: ""
+
+# CV : déposez le PDF dans assets/files/ puis indiquez son chemin, ex. /assets/files/cv.pdf
+cv: "/assets/files/cv-en.pdf"
+
+# Liens de la colonne latérale (laissez url vide pour masquer)
+liens:
+  - nom: LinkedIn
+    url: "https://www.linkedin.com/in/alexis-archambault-652790382"

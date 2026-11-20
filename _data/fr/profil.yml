@@ -1,0 +1,53 @@
+# Vos informations personnelles.
+# Un champ laissé vide ("") n'est pas affiché sur le site.
+
+nom: "Alexis Archambault"
+# Votre nom tel qu'il apparaît dans les listes d'auteurs (mis en gras dans les publications)
+nom_citation: "Alexis Archambault"
+statut: "Étudiant à la maitrise"
+affiliation: "Département d'informatique et de recherche opérationelle, Université de Montréal"
+
+# Photo : déposez le fichier dans assets/img/ puis indiquez son chemin, ex. /assets/img/photo.jpg
+photo: "/assets/img/photo_profile.jpg"
+
+accroche: "Étudiant à la maitrise en informatique, recherche opérationelle, théorie des jeux et du vote."
+
+
+bio: |
+  Je suis étudiant à la maitrise en informatique à l'Université de Montréal, membre du Cirrelt et du Mila.
+  Je travaille sur la théorie des jeux et du vote, plus précisément les liens entre le vote par approbation
+  à plusieurs gagnants (*approval-based multiwinner voting*) et les jeux budgétés (*budgeted games*), les équilibres
+  et les algorithmes.
+
+interets_perso: |
+  À côté de mes algorithmes, vous me trouverez souvent en train de répondre à des questions de Génie en herbe
+  ou de marcher en nature. Je suis aussi un ammateur de hockey et de ses statistiques.
+  J'adore aussi voyager, décrouvrir la richesse des cultures et de la nature.
+  Vous pouvez trouver certains de mes clichés [ici](/photos).
+
+  Je m'implique aussi sur mon temps libre pour des causes en lesquelles je crois. Actuellement : 
+    - Sur le conseil d'administration du Mouvement provincial de Génie en herbe / Panthologie (mpghp) pour valoriser
+    la conaissance en général et offrir à des milliers de jeunes au primaire et secondaire une activité parascolaire
+    motivante.
+    - Sur le Commité exécutif des jeunes du parti québécois pour défendre un Québec plus juste, soucieux de sa population
+    et de son environnement et libre. Comme conseiller aux affaires internes, je m'occupe du secrétariat, des status et
+    réglement et du suivi de nos objectifs.
+
+# Texte affiché sous le titre de la page Photos (Markdown accepté ; "" pour le masquer).
+# Pour plusieurs paragraphes, utilisez la forme « photos_description: | » comme pour bio.
+photos_description: "Quelques clichés pris au fil de mes voyages."
+
+# Légende de la carte du monde (les pays se choisissent dans _data/pays.yml)
+carte_legende: "Pays visités"
+
+courriel: "alexis.archambault.1 (at) umontreal.ca"
+bureau: ""
+adresse: ""
+
+# CV : déposez le PDF dans assets/files/ puis indiquez son chemin, ex. /assets/files/cv.pdf
+cv: "/assets/files/cv.pdf"
+
+# Liens de la colonne latérale (laissez url vide pour masquer)
+liens:
+  - nom: LinkedIn
+    url: "https://www.linkedin.com/in/alexis-archambault-652790382"

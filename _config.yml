@@ -1,0 +1,22 @@
+# Réglages du site. Après une modification de ce fichier,
+# relancez « bundle exec jekyll serve » pour qu'elle soit prise en compte.
+
+description: "Site web personnel"
+lang: fr
+
+# Adresse du site : https://alexis-archambault.github.io
+url: "https://alexis-archambault.github.io"
+baseurl: ""
+
+markdown: kramdown
+
+# Page Photos : nombre de photos par ligne pour les photos sans champ « rangee »
+photos_par_ligne: 3
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .gitignore
+  - Alexis-Archambault.github.io

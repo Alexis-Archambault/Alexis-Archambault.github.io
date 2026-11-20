@@ -1,0 +1,661 @@
+# Photos de la page « Photos », dans l'ordre d'affichage.
+#
+# 1. Déposez l'image dans assets/img/photos/
+#    (idéalement réduite à ~2000 px de large, pour que la page reste rapide).
+#    Attention aux majuscules : « Bergen1.jpg » et « bergen1.jpg » sont deux noms
+#    différents pour GitHub Pages.
+# 2. Ajoutez une entrée ci-dessous :
+#      ville  : le nom de la ville (ou du lieu). S'il change selon la langue,
+#               écrivez { fr: "Copenhague", en: "Copenhagen" }.
+#      pays   : code ISO à 2 lettres, ENTRE GUILLEMETS (ex. "NO", "CA") ;
+#               les codes sont listés dans _data/noms_pays.yml.
+#      annee  : l'année de la photo.
+#      rangee : (facultatif) les photos CONSÉCUTIVES qui ont la même valeur de rangee
+#               sont placées sur la même ligne, à la même hauteur, sur toute la largeur.
+#               Une photo seule dans sa rangée occupe toute la largeur.
+#               Sans rangee, les photos sont regroupées par 3 (réglable avec
+#               photos_par_ligne dans _config.yml).
+#      colonne: (facultatif) dans une rangée, les photos CONSÉCUTIVES qui ont la même
+#               valeur de colonne sont EMPILÉES. Toutes les colonnes d'une rangée ont la
+#               même hauteur : une grande photo à gauche peut faire face à deux photos
+#               empilées à droite. Sans colonne, chaque photo forme sa propre colonne.
+#
+#      section     : (facultatif) titre de section ; remplace le pays comme titre.
+#      sous_section: (facultatif) titre de sous-section ; remplace la ville comme sous-titre.
+#                    Texte simple, ou { fr: "...", en: "..." } pour traduire.
+#                    Ex. section: { fr: "Échange à Bergen", en: "Exchange in Bergen" }
+#                        sous_section: { fr: "Randonnées", en: "Hikes" }
+#                    Les filtres (pays, ville, année) continuent d'utiliser pays et ville.
+#
+#    ORDRE ET AGENCEMENT : la page est organisée en sections (par défaut le pays) puis en
+#    sous-sections (par défaut la ville), dans l'ordre où elles apparaissent ici ;
+#    les photos suivent l'ordre du fichier.
+#    Déplacez les entrées pour changer l'ordre ; utilisez rangee pour l'agencement.
+#    Exemple : une grande photo à gauche, deux photos empilées à droite,
+#    puis trois photos côte à côte :
+#      Bergen1 : rangee: 1, colonne: 1
+#      Bergen2 : rangee: 1, colonne: 2
+#      Bergen3 : rangee: 1, colonne: 2
+#      Bergen4 : rangee: 2      Bergen5 : rangee: 2      Bergen6 : rangee: 2
+#    Ville, pays et année alimentent aussi les filtres de la page et la légende automatique
+#    « Ville, Pays, Année » (lue par les lecteurs d'écran). Pour afficher une légende sous la photo :
+#      legende:
+#        fr: "..."
+#        en: "..."
+#
+
+
+- fichier: "/assets/img/photos/Montreal1.jpg"
+  ville: "Montréal"
+  pays: "QC"
+  annee: 2026
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Montreal2.jpg"
+  ville: "Montréal"
+  pays: "QC"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Montreal3.jpg"
+  ville: "Montréal"
+  pays: "QC"
+  annee: 2025
+  rangee: 1
+  colonne: 3
+
+- fichier: "/assets/img/photos/Saguenay1.jpg"
+  ville: "Saguenay"
+  pays: "QC"
+  annee: 2026
+  rangee: 1
+  colonne: 1
+  sous_section: Ailleurs au Québec
+- fichier: "/assets/img/photos/CoteNord1.jpg"
+  ville: "Côte-Nord"
+  pays: "QC"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+  sous_section: Ailleurs au Québec
+- fichier: "/assets/img/photos/Mauricie1.jpg"
+  ville: "Mauricie"
+  pays: "QC"
+  annee: 2026
+  rangee: 1
+  colonne: 3
+  sous_section: Ailleurs au Québec
+- fichier: "/assets/img/photos/Saint-Hyppolite1.jpg"
+  ville: "Saint-Hyppolite"
+  pays: "QC"
+  annee: 2026
+  rangee: 1
+  colonne: 4
+  sous_section: Ailleurs au Québec
+
+- fichier: "/assets/img/photos/Bergen1.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Bergen6.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Bergen11.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Bergen5.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 3
+
+- fichier: "/assets/img/photos/Bergen4.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 2
+  colonne: 1
+- fichier: "/assets/img/photos/Bergen2.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 2
+  colonne: 2
+- fichier: "/assets/img/photos/Bergen7.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 2
+  colonne: 3
+
+- fichier: "/assets/img/photos/Bergen13.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 3
+  colonne: 1
+- fichier: "/assets/img/photos/Bergen3.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 3
+  colonne: 2
+- fichier: "/assets/img/photos/Bergen25.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 3
+  colonne: 3
+- fichier: "/assets/img/photos/Bergen29.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 3
+  colonne: 4
+
+- fichier: "/assets/img/photos/Bergen28.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 4
+  colonne: 1
+- fichier: "/assets/img/photos/Bergen12.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 4
+  colonne: 2
+- fichier: "/assets/img/photos/Bergen26.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 4
+  colonne: 3
+
+- fichier: "/assets/img/photos/Bergen15.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 5
+  colonne: 1
+- fichier: "/assets/img/photos/Bergen22.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 5
+  colonne: 2
+- fichier: "/assets/img/photos/Bergen23.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 5
+  colonne: 2
+- fichier: "/assets/img/photos/Bergen10.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 5
+  colonne: 3
+- fichier: "/assets/img/photos/Bergen9.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 5
+  colonne: 4
+- fichier: "/assets/img/photos/Bergen18.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 5
+  colonne: 4
+
+- fichier: "/assets/img/photos/Bergen21.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 6
+  colonne: 1
+- fichier: "/assets/img/photos/Bergen14.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 6
+  colonne: 2
+- fichier: "/assets/img/photos/Bergen19.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 6
+  colonne: 2
+- fichier: "/assets/img/photos/Bergen16.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 6
+  colonne: 3
+- fichier: "/assets/img/photos/Bergen24.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 6
+  colonne: 3
+- fichier: "/assets/img/photos/Bergen27.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 6
+  colonne: 4
+
+- fichier: "/assets/img/photos/Bergen8.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 7
+  colonne: 1
+- fichier: "/assets/img/photos/Bergen20.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 7
+  colonne: 2
+- fichier: "/assets/img/photos/Bergen25.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 7
+  colonne: 3
+- fichier: "/assets/img/photos/Bergen30.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 7
+  colonne: 4
+- fichier: "/assets/img/photos/Bergen31.jpg"
+  ville: "Bergen"
+  pays: "NO"
+  annee: 2026
+  rangee: 7
+  colonne: 5
+
+
+- fichier: "/assets/img/photos/Lofoten3.jpg"
+  ville: { fr: "Iles Lofoten", en: "Lofoten Islands" }
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Lofoten4.jpg"
+  ville: { fr: "Iles Lofoten", en: "Lofoten Islands" }
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Lofoten11.jpg"
+  ville: { fr: "Iles Lofoten", en: "Lofoten Islands" }
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Lofoten5.jpg"
+  ville: { fr: "Iles Lofoten", en: "Lofoten Islands" }
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Lofoten7.jpg"
+  ville: { fr: "Iles Lofoten", en: "Lofoten Islands" }
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 3
+
+- fichier: "/assets/img/photos/Lofoten12.jpg"
+  ville: { fr: "Iles Lofoten", en: "Lofoten Islands" }
+  pays: "NO"
+  annee: 2026
+  rangee: 2
+  colonne: 1
+- fichier: "/assets/img/photos/Lofoten9.jpg"
+  ville: { fr: "Iles Lofoten", en: "Lofoten Islands" }
+  pays: "NO"
+  annee: 2026
+  rangee: 2
+  colonne: 2
+- fichier: "/assets/img/photos/Lofoten8.jpg"
+  ville: { fr: "Iles Lofoten", en: "Lofoten Islands" }
+  pays: "NO"
+  annee: 2026
+  rangee: 2
+  colonne: 2
+- fichier: "/assets/img/photos/Lofoten6.jpg"
+  ville: { fr: "Iles Lofoten", en: "Lofoten Islands" }
+  pays: "NO"
+  annee: 2026
+  rangee: 2
+  colonne: 1
+
+- fichier: "/assets/img/photos/Lofoten2.jpg"
+  ville: { fr: "Iles Lofoten", en: "Lofoten Islands" }
+  pays: "NO"
+  annee: 2026
+  rangee: 3
+  colonne: 1
+- fichier: "/assets/img/photos/Lofoten10.jpg"
+  ville: { fr: "Iles Lofoten", en: "Lofoten Islands" }
+  pays: "NO"
+  annee: 2026
+  rangee: 3
+  colonne: 2
+- fichier: "/assets/img/photos/Lofoten1.jpg"
+  ville: { fr: "Iles Lofoten", en: "Lofoten Islands" }
+  pays: "NO"
+  annee: 2026
+  rangee: 3
+  colonne: 3
+
+
+- fichier: "/assets/img/photos/Oslo2.jpg"
+  ville: "Oslo"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Oslo1.jpg"
+  ville: "Oslo"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Oslo8.jpg"
+  ville: "Oslo"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Oslo4.jpg"
+  ville: "Oslo"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 3
+- fichier: "/assets/img/photos/Oslo6.jpg"
+  ville: "Oslo"
+  pays: "NO"
+  annee: 2026
+  rangee: 2
+  colonne: 1
+- fichier: "/assets/img/photos/Oslo7.jpg"
+  ville: "Oslo"
+  pays: "NO"
+  annee: 2026
+  rangee: 2
+  colonne: 2
+- fichier: "/assets/img/photos/Oslo3.jpg"
+  ville: "Oslo"
+  pays: "NO"
+  annee: 2026
+  rangee: 2
+  colonne: 3
+- fichier: "/assets/img/photos/Oslo5.jpg"
+  ville: "Oslo"
+  pays: "NO"
+  annee: 2026
+  rangee: 2
+  colonne: 4
+
+
+- fichier: "/assets/img/photos/Alesund2.jpg"
+  ville: "Ålesund"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Alesund1.jpg"
+  ville: "Ålesund"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Alesund3.jpg"
+  ville: "Ålesund"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 3
+
+- fichier: "/assets/img/photos/Tromso1.jpg"
+  ville: "Tromsø"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Tromso3.jpg"
+  ville: "Tromsø"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Tromso6.jpg"
+  ville: "Tromsø"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Tromso2.jpg"
+  ville: "Tromsø"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 3
+- fichier: "/assets/img/photos/Tromso4.jpg"
+  ville: "Tromsø"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 4
+- fichier: "/assets/img/photos/Tromso5.jpg"
+  ville: "Tromsø"
+  pays: "NO"
+  annee: 2026
+  rangee: 1
+  colonne: 4
+
+
+- fichier: "/assets/img/photos/Copenhague1.jpg"
+  ville: { fr: "Copenhague", en: "Copenhagen" }
+  pays: "DK"
+  annee: 2026
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Copenhague2.jpg"
+  ville: { fr: "Copenhague", en: "Copenhagen" }
+  pays: "DK"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Copenhague3.jpg"
+  ville: { fr: "Copenhague", en: "Copenhagen" }
+  pays: "DK"
+  annee: 2026
+  rangee: 1
+  colonne: 3
+- fichier: "/assets/img/photos/Copenhague4.jpg"
+  ville: { fr: "Copenhague", en: "Copenhagen" }
+  pays: "DK"
+  annee: 2026
+  rangee: 1
+  colonne: 3
+
+- fichier: "/assets/img/photos/Stockholm1.jpg"
+  ville: "Stockholm"
+  pays: "SE"
+  annee: 2026
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Stockholm2.jpg"
+  ville: "Stockholm"
+  pays: "SE"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Stockholm3.jpg"
+  ville: "Stockholm"
+  pays: "SE"
+  annee: 2026
+  rangee: 1
+  colonne: 3
+
+- fichier: "/assets/img/photos/Bruxelles2.jpg"
+  ville: "Bruxelles"
+  pays: "BE"
+  annee: 2026
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Bruxelles1.jpg"
+  ville: "Bruxelles"
+  pays: "BE"
+  annee: 2026
+  rangee: 1
+  colonne: 2
+
+
+- fichier: "/assets/img/photos/Lisbonne1.jpg"
+  ville: {fr: "Lisbonne", en: "Lisbon"}
+  pays: "PT"
+  annee: 2025
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Lisbonne2.jpg"
+  ville: {fr: "Lisbonne", en: "Lisbon"}
+  pays: "PT"
+  annee: 2025
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Lisbonne3.jpg"
+  ville: {fr: "Lisbonne", en: "Lisbon"}
+  pays: "PT"
+  annee: 2025
+  rangee: 1
+  colonne: 3
+
+- fichier: "/assets/img/photos/Coimbra1.jpg"
+  ville: "Coimbra"
+  pays: "PT"
+  annee: 2025
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Coimbra2.jpg"
+  ville: "Coimbra"
+  pays: "PT"
+  annee: 2025
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Coimbra3.jpg"
+  ville: "Coimbra"
+  pays: "PT"
+  annee: 2025
+  rangee: 1
+  colonne: 3
+
+- fichier: "/assets/img/photos/Porto1.jpg"
+  ville: "Porto"
+  pays: "PT"
+  annee: 2025
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Porto2.jpg"
+  ville: "Porto"
+  pays: "PT"
+  annee: 2025
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Porto3.jpg"
+  ville: "Porto"
+  pays: "PT"
+  annee: 2025
+  rangee: 1
+  colonne: 3
+
+- fichier: "/assets/img/photos/Amsterdam1.jpg"
+  ville: "Amsterdam"
+  pays: "NL"
+  annee: 2024
+  rangee: 1
+  colonne: 1
+  sous_section: {fr: "Pays-Bas", en: "Netherlands"}
+- fichier: "/assets/img/photos/Amsterdam2.jpg"
+  ville: "Amsterdam"
+  pays: "NL"
+  annee: 2024
+  rangee: 1
+  colonne: 1
+  sous_section: {fr: "Pays-Bas", en: "Netherlands"}
+- fichier: "/assets/img/photos/LaHaie1.jpg"
+  ville: {fr: "La Haie", en: "The Hague"}
+  pays: "NL"
+  annee: 2024
+  rangee: 1
+  colonne: 2
+  sous_section: {fr: "Pays-Bas", en: "Netherlands"}
+- fichier: "/assets/img/photos/Utrecht1.jpg"
+  ville: "Utrecht"
+  pays: "NL"
+  annee: 2024
+  rangee: 1
+  colonne: 3
+  sous_section: {fr: "Pays-Bas", en: "Netherlands"}
+
+  
+- fichier: "/assets/img/photos/Rome3.jpg"
+  ville: "Rome"
+  pays: "IT"
+  annee: 2023
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Rome1.jpg"
+  ville: "Rome"
+  pays: "IT"
+  annee: 2023
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Rome2.jpg"
+  ville: "Rome"
+  pays: "IT"
+  annee: 2023
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Rome4.jpg"
+  ville: "Rome"
+  pays: "IT"
+  annee: 2023
+  rangee: 1
+  colonne: 4
+
+
+- fichier: "/assets/img/photos/Venise3.jpg"
+  ville: {fr: "Venise", en: "Venice"}
+  pays: "IT"
+  annee: 2023
+  rangee: 1
+  colonne: 1
+- fichier: "/assets/img/photos/Venise2.jpg"
+  ville: {fr: "Venise", en: "Venice"}
+  pays: "IT"
+  annee: 2023
+  rangee: 1
+  colonne: 2
+- fichier: "/assets/img/photos/Venise1.jpg"
+  ville: {fr: "Venise", en: "Venice"}
+  pays: "IT"
+  annee: 2023
+  rangee: 1
+  colonne: 3

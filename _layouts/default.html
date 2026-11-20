@@ -1,0 +1,106 @@
+{%- assign lang = page.lang | default: site.lang | default: 'fr' -%}
+{%- assign p = site.data[lang].profil -%}
+{%- assign t = site.data.ui[lang] -%}
+{%- assign accueil = t.url | relative_url -%}
+{%- assign page_photos = site.pages | where: "ref", "photos" | where: "lang", lang | first -%}
+{%- assign titre_page = t[page.ref] -%}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% if titre_page %}{{ titre_page }} · {% endif %}{{ p.nom }}</title>
+<meta name="description" content="{{ t.description }}">
+{%- for l in site.data.ui %}
+  {%- assign equiv = site.pages | where: "ref", page.ref | where: "lang", l[0] | first %}
+<link rel="alternate" hreflang="{{ l[0] }}" href="{{ equiv.url | default: l[1].url | absolute_url }}">
+{%- endfor %}
+<script>
+  // Appliquer le thème choisi avant l'affichage, pour éviter un clignotement
+  try {
+    var t = localStorage.getItem("theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body{% if page.pleine_largeur %} class="pleine-largeur"{% endif %}>
+<header class="barre">
+  <div class="barre-int">
+    <a class="barre-nom" href="{{ accueil }}">{{ p.nom }}</a>
+    <nav class="barre-nav" aria-label="{{ t.pages }}">
+      <ul>
+        <li><a href="{{ page_photos.url | relative_url }}"{% if page.ref == "photos" %} class="actif" aria-current="page"{% endif %}>{{ t.nav_photos }}</a></li>
+      </ul>
+    </nav>
+    <div class="barre-outils">
+      {%- for l in site.data.ui %}
+        {%- if l[0] != lang %}
+        {%- assign equiv = site.pages | where: "ref", page.ref | where: "lang", l[0] | first %}
+      <a class="lang-switch" href="{{ equiv.url | default: l[1].url | relative_url }}" hreflang="{{ l[0] }}" lang="{{ l[0] }}" title="{{ l[1].nom }}"><span aria-hidden="true">{{ l[0] | upcase }}</span><span class="visuel-cache">{{ l[1].nom }}</span></a>
+        {%- endif %}
+      {%- endfor %}
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="{{ t.theme }}" title="{{ t.theme }}">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="page{% if page.colonne == false %} page-pleine{% endif %}">
+
+  {%- unless page.colonne == false %}
+  <aside class="side">
+    <div class="side-head">
+      <div class="portrait">
+        {%- if p.photo != blank -%}
+        <img src="{{ p.photo | relative_url }}" alt="{{ t.portrait }} {{ p.nom }}">
+        {%- else -%}
+        Photo
+        {%- endif -%}
+      </div>
+      <div>
+        <p class="who">{{ p.nom }}</p>
+        <p class="role">{{ p.statut }}<br>{{ p.affiliation }}</p>
+      </div>
+    </div>
+
+    <nav aria-label="{{ t.sections }}">
+      <ul>
+        <li><a href="{{ accueil }}#apropos">{{ t.nav_apropos }}</a></li>
+        <li><a href="{{ accueil }}#recherche">{{ t.nav_recherche }}</a></li>
+        <li><a href="{{ accueil }}#enseignement">{{ t.nav_enseignement }}</a></li>
+        <li><a href="{{ accueil }}#interets">{{ t.nav_interets }}</a></li>
+      </ul>
+    </nav>
+
+    <ul class="links">
+      {%- if p.courriel != blank %}
+      <li><span class="courriel" data-libelle="{{ t.courriel_lien }}">{{ p.courriel }}</span></li>
+      {%- endif -%}
+      {%- for lien in p.liens -%}
+        {%- if lien.url != blank %}
+      <li><a href="{{ lien.url }}">{{ lien.nom }}</a></li>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if p.cv != blank %}
+      <li><a href="{{ p.cv | relative_url }}">{{ t.cv }}</a></li>
+      {%- endif %}
+    </ul>
+  </aside>
+  {%- endunless %}
+
+  <main>
+    {{ content }}
+    <footer>
+      <span>© {{ site.time | date: "%Y" }} {{ p.nom }}</span>
+      <span>{{ t.maj }} {{ site.time | date: "%d/%m/%Y" }}</span>
+    </footer>
+  </main>
+</div>
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

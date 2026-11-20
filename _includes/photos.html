@@ -1,0 +1,172 @@
+{%- comment -%}
+  Galerie de photos, commune à toutes les langues.
+  Les photos sont listées dans _data/photos.yml.
+  Les filtres (année, pays, ville) sont remplis par assets/js/main.js
+  à partir des attributs data-* de chaque photo ; les sections vides
+  après filtrage sont masquées.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang | default: 'fr' -%}
+{%- assign t = site.data.ui[lang] -%}
+{%- assign p = site.data[lang].profil -%}
+{%- assign photos = site.data.photos -%}
+{%- assign par_ligne = site.photos_par_ligne | default: 3 -%}
+
+{%- comment -%}
+  Pays ayant des photos (coloriés et cliquables sur la carte). Le Québec (QC) est une
+  région distincte du Canada (CA) sur la carte.
+{%- endcomment -%}
+{%- assign codes_photos = photos | map: "pays" | join: " " | upcase | split: " " | uniq -%}
+
+<section aria-labelledby="h-photos">
+  <div class="photos-entete">
+  <div class="photos-entete-texte">
+  <h1 id="h-photos" class="page-title">{{ t.photos }}</h1>
+  {%- if p.photos_description != blank %}
+  <div class="prose photos-intro">{{ p.photos_description | markdownify }}</div>
+  {%- endif %}
+
+  {%- if photos and photos.size > 0 %}
+  <form class="filtres" id="filtres" aria-label="{{ t.filtres }}" data-photo="{{ t.f_photo }}" data-photos="{{ t.f_photos }}" hidden>
+    <label>{{ t.f_annee }}
+      <select name="annee"><option value="">{{ t.f_toutes }}</option></select>
+    </label>
+    <label>{{ t.f_pays }}
+      <select name="pays"><option value="">{{ t.f_tous }}</option></select>
+    </label>
+    <label>{{ t.f_ville }}
+      <select name="ville"><option value="">{{ t.f_toutes }}</option></select>
+    </label>
+    <button type="reset" class="filtres-reinit">{{ t.f_reinit }}</button>
+    <output class="filtres-compte" aria-live="polite"></output>
+  </form>
+  {%- endif %}
+  </div>
+
+  {%- if photos and photos.size > 0 %}
+  <figure class="carte carte-photos" data-aide="{{ t.carte_aide | escape }}">
+    {% include carte-monde.svg titre=t.carte_photos choisis=codes_photos %}
+    <figcaption><span class="carte-pastille" aria-hidden="true"></span>{{ t.carte_photos }}</figcaption>
+  </figure>
+  {%- endif %}
+  </div>
+
+  {%- if photos and photos.size > 0 %}
+
+  {%- comment -%}
+    Sections (titres h2) : champ « section » de la photo ; à défaut, le pays.
+    Sous-sections (titres h3) : champ « sous_section » ; à défaut, la ville.
+    Les deux suivent l'ordre d'apparition dans _data/photos.yml.
+    Agencement : champs « rangee » et « colonne » (voir _data/photos.yml).
+  {%- endcomment -%}
+  {%- assign par_section = photos | group_by_exp: "ph", "ph.section.fr | default: ph.section | default: ph.pays | upcase" %}
+  {%- for gs in par_section %}
+  {%- assign premiere = gs.items | first -%}
+  {%- if premiere.section -%}
+    {%- assign titre_section = premiere.section[lang] | default: premiere.section -%}
+  {%- else -%}
+    {%- assign code = premiere.pays | upcase -%}
+    {%- assign titre_section = site.data.noms_pays[code][lang] | default: code -%}
+  {%- endif -%}
+  {%- comment -%} Ancre de la section : son titre sans accents, ex. /photos/#norvege {%- endcomment -%}
+  {%- assign id_section = titre_section | slugify: "latin" %}
+  <section class="groupe-pays" aria-labelledby="{{ id_section }}">
+    <h2 id="{{ id_section }}">{{ titre_section }}</h2>
+    {%- assign par_sous = gs.items | group_by_exp: "ph", "ph.sous_section.fr | default: ph.sous_section | default: ph.ville.fr | default: ph.ville" %}
+    {%- for gv in par_sous %}
+    {%- assign premiere = gv.items | first -%}
+    {%- if premiere.sous_section -%}
+      {%- assign titre_sous = premiere.sous_section[lang] | default: premiere.sous_section -%}
+    {%- else -%}
+      {%- assign titre_sous = premiere.ville[lang] | default: premiere.ville -%}
+    {%- endif %}
+    <section class="groupe-ville">
+      {%- if titre_sous != blank %}
+      <h3>{{ titre_sous }}</h3>
+      {%- endif %}
+      {%- comment -%}
+        Agencement (voir _data/photos.yml) :
+        - rangee  : des photos consécutives avec la même valeur partagent une ligne ;
+                    sans rangee, regroupement automatique par photos_par_ligne (_config.yml).
+        - colonne : dans une rangée, des photos consécutives avec la même valeur sont
+                    empilées dans une même colonne ; toutes les colonnes ont la même hauteur.
+        Structure : ul.galerie (rangée) > li.colonne > ul.pile > li.photo
+      {%- endcomment -%}
+      {%- assign prec = "" -%}
+      {%- assign col_prec = "" -%}
+      {%- assign n = 0 -%}
+      {%- assign ouvert = false -%}
+      {%- for ph in gv.items -%}
+        {%- if ph.rangee -%}
+          {%- assign cle = "r" | append: ph.rangee -%}
+          {%- if cle != prec %}{% assign nouvelle = true %}{% else %}{% assign nouvelle = false %}{% endif -%}
+        {%- else -%}
+          {%- assign cle = "auto" -%}
+          {%- if prec != "auto" or n >= par_ligne %}{% assign nouvelle = true %}{% else %}{% assign nouvelle = false %}{% endif -%}
+        {%- endif -%}
+        {%- if ph.colonne -%}
+          {%- assign ccle = "c" | append: ph.colonne -%}
+        {%- else -%}
+          {%- assign ccle = "" -%}
+        {%- endif -%}
+        {%- if nouvelle or ccle == "" or ccle != col_prec %}{% assign nouvelle_col = true %}{% else %}{% assign nouvelle_col = false %}{% endif -%}
+        {%- if nouvelle_col and ouvert %}
+          </ul>
+        </li>
+        {%- endif -%}
+        {%- if nouvelle -%}
+          {%- if ouvert %}
+      </ul>
+          {%- endif %}
+      <ul class="galerie">
+          {%- assign ouvert = true -%}
+          {%- assign n = 0 -%}
+        {%- endif -%}
+        {%- if nouvelle_col %}
+        <li class="colonne">
+          <ul class="pile">
+        {%- endif -%}
+        {%- assign n = n | plus: 1 -%}
+        {%- assign prec = cle -%}
+        {%- assign col_prec = ccle %}
+            {%- comment -%} Pays et ville propres à chaque photo (filtres, légende) {%- endcomment -%}
+            {%- assign code_pays = ph.pays | upcase -%}
+            {%- assign nom_pays = site.data.noms_pays[code_pays][lang] | default: code_pays -%}
+            {%- assign ville = ph.ville[lang] | default: ph.ville -%}
+            {%- assign ville_cle = ph.ville.fr | default: ph.ville | slugify -%}
+            {%- capture auto -%}{{ ville }}{% if ville != blank and nom_pays != blank %}, {% endif %}{{ nom_pays }}{% if ph.annee %}, {{ ph.annee }}{% endif %}{%- endcapture -%}
+            {%- assign perso = ph.legende[lang] | strip -%}
+            {%- assign legende = perso | default: auto | strip -%}
+            <li class="photo" data-annee="{{ ph.annee }}" data-pays="{{ code_pays }}" data-pays-nom="{{ nom_pays | escape }}" data-ville="{{ ville_cle }}" data-ville-nom="{{ ville | escape }}">
+              <figure>
+                <a href="{{ ph.fichier | relative_url }}" data-legende="{{ legende | escape }}">
+                  <img src="{{ ph.fichier | relative_url }}" alt="{{ legende | default: t.photos | escape }}" loading="lazy">
+                </a>
+                {%- if perso != "" %}
+                <figcaption>{{ perso }}</figcaption>
+                {%- endif %}
+              </figure>
+            </li>
+      {%- endfor -%}
+      {%- if ouvert %}
+          </ul>
+        </li>
+      </ul>
+      {%- endif %}
+    </section>
+    {%- endfor %}
+  </section>
+  {%- endfor %}
+
+  <dialog class="visionneuse" id="visionneuse" aria-label="{{ t.photos }}">
+    <figure>
+      <img alt="">
+      <figcaption></figcaption>
+    </figure>
+    <button type="button" class="v-btn v-prec" aria-label="{{ t.precedente }}">‹</button>
+    <button type="button" class="v-btn v-suiv" aria-label="{{ t.suivante }}">›</button>
+    <button type="button" class="v-btn v-fermer" aria-label="{{ t.fermer }}">×</button>
+  </dialog>
+  {%- else %}
+  <p class="meta">{{ t.photos_vide }}</p>
+  {%- endif %}
+</section>

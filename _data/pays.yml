@@ -1,0 +1,21 @@
+# Pays coloriés sur la carte du monde (section « En dehors de la recherche »).
+# Un code ISO à 2 lettres par ligne, entre guillemets : https://fr.wikipedia.org/wiki/ISO_3166-1_alpha-2
+# Exemples : CA Canada, US États-Unis, FR France, NO Norvège, GB Royaume-Uni, DE Allemagne.
+# La liste complète des codes reconnus par la carte est dans _data/noms_pays.yml.
+# Laissez la liste vide ([]) pour masquer la carte.
+
+- "CA"   # reste du Canada
+- "QC"   # Québec (région distincte sur la carte)
+- "US"
+- "CU"
+- "MX"
+- "DO"
+- "FR"
+- "GR"
+- "IT"
+- "NL"
+- "PT"
+- "BE"
+- "NO"
+- "DK"
+- "SE"
