@@ -5,12 +5,12 @@ nom: "Alexis Archambault"
 # Votre nom tel qu'il apparaît dans les listes d'auteurs (mis en gras dans les publications)
 nom_citation: "Alexis Archambault"
 statut: "Étudiant à la maitrise"
-affiliation: "Département d'informatique et de recherche opérationelle, Université de Montréal"
+affiliation: "Département d'informatique et de recherche opérationnelle, Université de Montréal"
 
 # Photo : déposez le fichier dans assets/img/ puis indiquez son chemin, ex. /assets/img/photo.jpg
 photo: "/assets/img/photo_profile.jpg"
 
-accroche: "Étudiant à la maitrise en informatique, recherche opérationelle, théorie des jeux et du vote."
+accroche: "Étudiant à la maitrise en informatique, recherche opérationnelle, théorie des jeux et du vote."
 
 
 bio: |
@@ -21,17 +21,17 @@ bio: |
 
 interets_perso: |
   À côté de mes algorithmes, vous me trouverez souvent en train de répondre à des questions de Génie en herbe
-  ou de marcher en nature. Je suis aussi un ammateur de hockey et de ses statistiques.
-  J'adore aussi voyager, décrouvrir la richesse des cultures et de la nature.
+  ou de marcher en nature. Je suis aussi un amateur de hockey et de ses statistiques.
+  J'adore aussi voyager, découvrir la richesse des cultures et de la nature.
   Vous pouvez trouver certains de mes clichés [ici](/photos).
 
   Je m'implique aussi sur mon temps libre pour des causes en lesquelles je crois. Actuellement : 
     - Sur le conseil d'administration du Mouvement provincial de Génie en herbe / Panthologie (mpghp) pour valoriser
-    la conaissance en général et offrir à des milliers de jeunes au primaire et secondaire une activité parascolaire
+    la connaissance en général et offrir à des milliers de jeunes au primaire et secondaire une activité parascolaire
     motivante.
     - Sur le Commité exécutif des jeunes du parti québécois pour défendre un Québec plus juste, soucieux de sa population
-    et de son environnement et libre. Comme conseiller aux affaires internes, je m'occupe du secrétariat, des status et
-    réglement et du suivi de nos objectifs.
+    et de son environnement et libre. Comme conseiller aux affaires internes, je m'occupe du secrétariat, des statuts et
+    règlements et du suivi de nos objectifs.
 
 # Texte affiché sous le titre de la page Photos (Markdown accepté ; "" pour le masquer).
 # Pour plusieurs paragraphes, utilisez la forme « photos_description: | » comme pour bio.
